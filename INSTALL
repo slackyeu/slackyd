@@ -1,0 +1,23 @@
+Run:
+
+$ make
+
+to build slackyd, and:
+
+# make install
+
+to install.
+ 
+--------------------
+
+Makefile options:
+
+debug=yes|no:		Enable debug.
+			Default yes.
+
+mtrace=yes|no:		Enable dynamic memory allocation tracking.
+			Default no.
+			
+profile=yes|no:		Enable profiling.
+			Default no.
+

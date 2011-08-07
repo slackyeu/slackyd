@@ -1,0 +1,249 @@
+Slackyd News and Bug Fix:
+
+1.0:
++ Use the openssl version of md5
+- Fixed a bug with the vlc package and all the packages with a lot of
+  dependences.
+
+0.1.13.3beta:
++ Added "upgrade_replacing_official" keyword to config file to prevent slackware packages replacement with unofficial.
++ Added "wget" keyword to config file to using wget (proxy workaround). (thanks to ZeroUno)
++ Added "slackware64" keyword to config file.
+- Fixed dependencies OR check. 
+
+0.1.13beta:
++ Added cache and customizable mirror port to config file.
++ Added txz support.
++ Added a function to replace unofficial packages with slackware packages.
++ Rewritten functions to purge cache.
+- Fixed checksum check of packages with same partial name.
+- Fixed OR on dependencies and packages suggests check.
+- Fixed last mirror update on connection timeout.
+- Fixed multiple missing library research.
+
+
+0.1.12beta:
+- Fixed abort() call parsing a bad package description.
+- Fixed packages status without compare also extension, log/packages/ hasn't it.
+- Fixed CHECKSUMS.md5 download, now use just /CHECKSUMS.md5 instead of a md5 list for each slackware branch.
+- Fixed a bug downloading packages sources and build files.
+- Fixed bad parsing of local mirrors path.
+- Removed forced update on broken file list, now print just a warning.
++ Rewritten functions to parse configuration file.
+
+0.1.11beta:
+- Fixed bad header inclusion building with debug.
+- Fixed bad warning on first update.
+- Fixed double md5 check on upgrade.
++ Rewritten http function.
++ Rewritten ftp function, now work fine.
++ Rewritten all functions to manage packages build sources.
++ Optimized needed missing shared libraries research.
++ Replaced some memory reallocation using lists.
++ Optimized package md5 checksum research removing regex functions.
++ Added support to local mirrors. (file://)
++ Added a switch to search and print obsolete packages.
+
+0.1.10beta:
+- Fixed package version check on packager dependencies verify.
+- Fixed timeout on ftp and http connections.
++ Rewritten function to test downloaded repository files list.
++ Rewritten function to update repositories packages list.
++ Removed double functions to sort packages. Now use just a fast quicksort :)
++ Add package compressed and uncompressed size info at switch to see installed packages, with verbose mode.
+
+0.1.9beta:
+- Fixed double memory allocation on upgrade.
+- Fixed double available packages message resolving dependencies.
+- Fixed a segfault on download when no packages choiced.
+- Fixed bad origin and repository branch when found abnormal packages.
++ Removed regex functions on exactly package string research.
++ Rewritten function to make a regex string.
++ Add packages blacklist in config file.
++ Add an option to disable blacklist.
++ Add an option to show available blacklisted packages.
++ Optimized functions to parse packages data.
+
+0.1.8beta:
+- Fixed bad package status on w option.
+- Fixed memory leak parsing packages size string.
+- Fixed bad packages count on download.
+- Fixed read of library path from ld.so.conf with strings spaces terminated.
+- Fixed fatal error on all packages list missing.
+- Fixed bad verbosity checking missing shared library.
+- Fixed memory corruption on system with not standard packages installed.
+- Fixed some command line argument parsing order.
+- Fixed memory leak removing some packages data structure.
++ Hide package status on dependencies resolution.
++ Rewritten function to parse strings from config file data.
++ Rewritten function to split package fold; removed regex function, now is really fast. :)
++ Add a switch to skip packages status check.
++ Optimized research of new packages.
++ Optimized research of missing dependencies packager-indicated.
++ Add version check of packages required.
++ Add regex support.
++ Add an option to make research case-insensitive.
++ Add recursive function to check global dependencies.
++ Add package version check retrieving build sources.
++ Add regex error report.
+
+0.1.7beta:
+- Fixed unofficial packages installed research on broken official files list.
+- Fixed packages suggests verify on missing library check.
+- Fixed already choiced required packages download ask.
+- Fixed dependency type copy.
+- Fixed choice of multiple required packages.
+- Fixed index of required packages found in MANIFEST but missing from PACKAGES.TXT.
+- Fixed a warning on void MANIFEST.
+- Fixed a package operator check on repository list parsing.
++ Optimized dependencies resolution.
++ Optimized reading installed packages.
++ Optimized package data parsing and function rewritten.
++ Add support to dependency packager-indicated resolution.
++ Add packages status. 
++ Add download speed counter :)
++ Add installed packages check and skip on download or upgrade.
++ Add data size and status on upgrade or download with verbose switch enabled.
++ Add package status on switch to see packages info.
+
+0.1.6beta:
+- Fixed bad cast on function to search missing shared libraries.
+- Fixed segfault when no required packages was found.
+- Fixed checksum check on required packages download.
+- Fixed memory leak on repository statistics.
+- Fixed upgrade of available double packages already installed.
+- Fixed regex on shared libraries search.
+- Fixed (removed) timestamp check on checksums files list. 
+- Fixed double downloads of packages choiced but also required by other packages.
+- Fixed packages sort version.
+- Fixed upgrade of slackware patches with same version and build number.
+- Fixed all files closure on dependencies verify.
+- Fixed dependency double check on upgrade with only one package selected.
+- Fixed a memory leak on packages not choiced in dependencies check.
+- Fixed bad count of new packages found on upgrade.
+- Fixed word case to case-insensitive on function to show installed packages.
+- Removed package sorting on repository statistics.
+- Removed temporarily package conflicts warning.
++ Add some options to makefile for enable/disable debug, mtrace and profiling support.
++ Add debug, mtrace and profiling status to slackyd info switch.
++ Optimized upgrade, now use few memory and is more fast.
++ Modified function to search package, get each file line insted load in memory entire data.
++ Rewritten function to search unofficial packages. Now work fast ! 
++ Add packages suggests download.
++ Global memory and cpu usage optimizations.
+
+0.1.5beta:
+- Fixed bad missing dependencies list of packages not downloaded or choiced.
+- Fixed bad binary files timestamp check on ftp downloads.
+- Fixed verbosity on slackyd directory clean.
+- Fixed slackyd conf directory permission.
++ Add a switch to use an alternate configuration file.
++ Changed packages search, upgrade, installed list and unofficial list switch to get an optional argument.
++ Rewritten upgrade function.
++ Splitted choice of same packages with different version and/or build, on download/upgrade.
++ Sorting packages, now are always sort by name, version and build.
++ Add a switch to hide some warnings.
++ Add MANIFEST.bz2 download, now slackyd can obtain package name from a missing file.
++ Rewritten function to search md5 file hash.
++ Add a switch to make repository statistics.
+
+0.1.4beta:
+- Fixed non-blocking connection to ftp server on passive mode.
++ Add a switch to download package build files and tarball source.
++ Add partial support to package build from sources.
+
+0.1.3beta:
+- Fixed build with gcc -O2 -Werror cflags.
+- Fixed packages search and upgrade with broken extra repositories files list.
+- Fixed case insensitive match on packages search.
++ Add support to 32 and 64 bit elf linked shared libraries tracking. 
++ Add an option to find unofficial packages.
++ Add verbose switch.
++ Rewritten a piece of network code (ftp).
++ Maintenance and review code.
+
+0.1.2beta:
+- Fixed bad function return value on packages already downloaded.
+- Fixed FTP file retrieving, now is more fast.
+- Removed patches and extra branches for extra mirror. They don't have.
++ Splitted official and extra mirror in slackyd.conf.
++ Add extra branch for official mirror.
+
+0.1.1beta:
+- Fixed permission on repositories directory.
++ Add ftp protocol support.
++ Add connection timeout.
+
+0.1.0beta:
+- Fixed packages info. Now there are dependencies/conflicts/suggests present, missing or not available.
+- Fixed packages list match, use only a variable instead a big array.
+- Fixed function to load a file. Not save EOF.
+- Fixed check on unexpected contenent of repository file timestamp.
+- Fixed regex matching keyword preceded by a '-'.
+- Fixed unitialize pointer on repository whitout dependencies tracking. 
+- Fixed regfree call on null function call for split data packages.
+- Fixed memory free on memory not allocated for a failed call of dependencies check function.
+- Fixed huge memory leak on package data parsing.
+- Removed FILELIST.TXT download. For upgrade use PACKAGES.TXT.
+- Removed option for verify md5 hash on downloaded packages. Now slackyd is multi repository, i can't stabilished package origin. Check md5 only after download.
+- Fixed data parsing on upgrade function to case insensitive.
+- Fixed packages list check 404 error over http request.
++ Add multi repository support.
++ Add partial configuration file.
+
+0.0.7beta:
+- Fixed purge option. Now clean only packages downloaded.
+- Fixed update option. Now overwrite old files only when new files was been downloaded or when use force option.
++ Add conflicts check and warning on packages/dependencies downloaded.
++ Optimize upgrade function (memory use). Now parsing only package name from repository file list.
++ Adjusted md5 checksum option. Now verify hash only on packages downloaded.
++ Add timestamp verify on repository files list while updating.
++ Add an option for clean entire slackyd directory (files list and packages)
++ Add an option for force. Not do question and update always repository files list.
++ Add an option for print slackyd version.
+
+0.0.6beta:
+- Fixed child termination, changed first SIGINT with a SIGTERM.
++ Add an option to clean any file in slackyd directory.
++ Now compile with ansi and pedantic gcc flags.
+
+0.0.5beta:
+- Fixed unused allocated memory on dependency check.
+- Fixed child termination on shell effect.
+- Fixed regex on package search.
+- Fixed regex on package download.
+- Fixed permission on package dir creation.
++ Add an option to search and download updated packages.
++ Add an option to view packages installed.
++ Completed dependencies and sub-dependencies check/download support on packages downloaded.
++ Add possibility to disable dependencies check.
++ Add an option for enable only warning on broken dependencies.
++ Optimize use of memory while search/download packages.
++ Optimize use of memory while search dependecies.
+
+0.0.4beta:
++ Add notify on missing dependency for packages downloaded.
+  If there are broken dependencies now slackyd print each dependency for each package downloaded.
+  At end print results.
++ Add packages conflict list on switch -w.
++ Add packages suggest list on switch -w.
+
+0.0.3beta:
+- Fixed packages search.
+  Searching packages with regex special character slackyd use memory for save all repository packages info. Fix.
++ Add partial dependency check.
++ Removed -d switch. Now use -w switch.
++ Now -w switch show also packages dependency status (installed or not).
+
+0.0.2beta:
+- Correct a memory leak while search package.
+- Correct a bad check on malloc() while searching package name long two character.
++ Add switch -d, for see package dependency.
++ Add recursively package md5 verify.
++ Set slackyd dir in /var/slackyd
++ Verify on packages already downloaded.
++ Add a make install
+
+0.0.1beta:
++ First release.
+

@@ -1,0 +1,5 @@
+/slackyd
+*.o
+*.patch
+*.orig
+*~
