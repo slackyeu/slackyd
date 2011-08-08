@@ -396,7 +396,7 @@ get (pkg_t **packages[], unsigned *n_pkgs)
 void
 verify_md5 (pkg_t *package)
 {
-    const char *cache = opt.cache;
+    const char *cache = opt.dest;
     char path[BUFFSIZE0] = { 0 };
     char *hash = NULL;
     unsigned mirror = package->N_REPO; /* mirror index */

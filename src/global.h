@@ -78,6 +78,7 @@ typedef struct options_t {
     char *package;
     char *config;
     char *cache;
+    char *dest;
     u_short TIMEOUT;
     regex_t *blacklisted;
     unsigned nblacklisted;

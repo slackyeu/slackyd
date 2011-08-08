@@ -580,7 +580,7 @@ int get_file_over_fs (net_t *netpolicy)
 int
 get_pkg (pkg_t *package)
 {
-    const char *cache = opt.cache;
+    const char *cache = opt.dest;
     int r = package->N_REPO;
     net_t netpolicy;
     char *loc, *name, *host, *path;
@@ -597,8 +597,8 @@ get_pkg (pkg_t *package)
     netpolicy.overwrite  = false;
     netpolicy.checkstamp = false;
     strncpy (netpolicy.hostname, host, BUFFSIZE);
-    snprintf (netpolicy.msg, BUFFSIZE, "%s %s.",
-        (REPOS[r].proto_t == proto_file) ? "Copying" : "Downloading", name);
+    snprintf (netpolicy.msg, BUFFSIZE, "%s %s/%s.",
+        (REPOS[r].proto_t == proto_file) ? "Copying to" : "Downloading to", cache, name);
     snprintf (netpolicy.srcpath,  BUFFSIZE, "%s/%s/%s", path, loc, name);
     snprintf (netpolicy.destpath, BUFFSIZE, "%s/%s", cache, name);
 

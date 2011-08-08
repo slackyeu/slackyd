@@ -1010,8 +1010,9 @@ parse_options (int argc, char **argv)
     if (opt.cache == NULL) {
         opt.cache = xstrdup (DATADIR);
     }
+    opt.dest = xstrdup(opt.cache);
 
-	while ((c = getopt(argc, argv, "5" "B:D::IL::O::PRSU::VX::" "b:c:d::efg:hl::mnpqr::s::uvw:x")) != -1) {
+	while ((c = getopt(argc, argv, "5" "B:D::IL::O::PRSU::VX::" "b:c:d::efg:hl::mnpqr::s::uvw:xt:")) != -1) {
 	
 	switch (c) {
 	
@@ -1178,6 +1179,9 @@ parse_options (int argc, char **argv)
 	    opt.print_status  = true;
 	    opt.enabled++;
         break;
+	case 't':		/* use a different path to download packages */
+	    opt.dest          = xstrdup(optarg);
+	    break;
 	case 'u':		/* update file list */
 	    opt.update = true;
 	    opt.enabled++;

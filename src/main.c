@@ -50,6 +50,7 @@ usage(char *prgname)
     fprintf (stderr, " -R: Show repositories statistics.                   \n");
     fprintf (stderr, " -s: Search package.                                 \n");
     fprintf (stderr, " -S: Skip dependencies check.                        \n");
+    fprintf (stderr, " -t: Specify a path to download packages             \n");
     fprintf (stderr, " -u: Update packages list and md5 hash list.         \n");
     fprintf (stderr, " -U: Search new packages.                            \n");
     fprintf (stderr, " -v: Verbose mode.                                   \n");
